@@ -12,6 +12,7 @@ public class Exercicios2 {
         //que06();
         //que07();
         //que08();
+        que09();
     }
 
     public static void que01() {
@@ -137,5 +138,25 @@ public class Exercicios2 {
         }
     }
 
+    public static void que09() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Número de aulas dadas: ");
+        int auldad = in.nextInt();
+        System.out.println("Número de aulas que esteve presente: ");
+        int aulpre = in.nextInt();
+        double pre = auldad * 0.75;
+        System.out.println("O aluno tem atestado médico? (SIM/NAO)");
+        String atestado = in.nextLine();
+        in.nextLine();
+        if (atestado.equals("SIM")) {
+            System.out.println("Poderá fazer o exame!");
+        } else if (aulpre > pre) {
+            System.out.println("Poderá fazer o exame");
+        } else {
+            System.out.println("Não poderá fazer o exame");
+        }
+    }
 }
+
+
 
