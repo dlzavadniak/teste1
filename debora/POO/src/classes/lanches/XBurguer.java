@@ -1,4 +1,6 @@
-package classes;
+package classes.lanches;
+
+import classes.lanches.Sanduiches;
 
 public class XBurguer extends Sanduiches {
 
@@ -9,7 +11,7 @@ public class XBurguer extends Sanduiches {
         this.adicionarIngrediente("Queijo");
         this.adicionarIngrediente("Presunto");
         this.adicionarIngrediente("Pão");
-        this.tipo = "XBurguer";
+        this.setTipo("XBurguer");
     }
     @Override
     public void montarComanda() {

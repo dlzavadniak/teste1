@@ -1,8 +1,10 @@
-package classes;
+package classes.lanches;
+
+import classes.lanches.Lanche;
 
 public abstract class Sanduiches extends Lanche {
 
-    public String[] adicionais = new String[10];
+    private String[] adicionais = new String[10];
 
 
     public void adicionarAdicional(String adicional) {
@@ -25,4 +27,5 @@ public abstract class Sanduiches extends Lanche {
             }
         }
     }
+
 }

@@ -1,4 +1,6 @@
-package classes;
+package classes.lanches;
+
+import classes.lanches.XBurguer;
 
 public class XSalada extends XBurguer {
     public boolean aberto;
@@ -8,7 +10,7 @@ public class XSalada extends XBurguer {
         this.adicionarIngrediente("Tomate");
         this.adicionarIngrediente("Picles");
         this.adicionarIngrediente("Maionese");
-        this.tipo = "XSalada";
+        this.setTipo("XSalada");
     }
 
 }
