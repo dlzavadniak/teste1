@@ -6,11 +6,6 @@ public class Pizza extends MiniPizza {
 
     private String tamanho;
 
-    @Override
-    public void montarComanda() {
-        super.montarComanda();
-        System.out.println("Tamanho: "+this.tamanho);
-    }
 
     public Pizza() {
        this.setTipo("Pizza");

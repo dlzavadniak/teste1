@@ -16,16 +16,11 @@ public abstract class Sanduiches extends Lanche {
         }
     }
 
-    public void montarComanda() {
-        super.montarComanda();
-        if (this.adicionais[0] != null) {
-            System.out.println("-ADICIONAIS-");
-            for (String adiocional : this.adicionais) {
-                if (adiocional != null) {
-                    System.out.println(adiocional);
-                }
-            }
-        }
+    public String[] getAdicionais() {
+        return adicionais;
     }
 
+    public void setAdicionais(String[] adicionais) {
+        this.adicionais = adicionais;
+    }
 }
