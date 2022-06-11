@@ -16,6 +16,8 @@ public abstract class Lanche {
         }
     }
 
+    public abstract void mostrarDetalhesComanda();
+
 
     public double getValor() {
         return valor;

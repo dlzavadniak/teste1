@@ -13,8 +13,6 @@ public class Checklistitem {
 
     private boolean completa;
 
-    private int ordem;
-
 
     // metodos
     public Checklistitem() {
@@ -22,7 +20,6 @@ public class Checklistitem {
     }
 
     public void completar() {
-
     }
 
     // getter e setter
@@ -57,12 +54,5 @@ public class Checklistitem {
     public void setCompleta(boolean completa) {
         this.completa = completa;
     }
-
-    public int getOrdem() {
-        return ordem;
-    }
-
-    public void setOrdem(int ordem) {
-        this.ordem = ordem;
-    }
 }
+

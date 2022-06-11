@@ -21,4 +21,9 @@ public class XBurguer extends Sanduiches {
     public void setAberto(boolean aberto) {
         this.aberto = aberto;
     }
+
+    @Override
+    public void mostrarDetalhesComanda() {
+
+    }
 }

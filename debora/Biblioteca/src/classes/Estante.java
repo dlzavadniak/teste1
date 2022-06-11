@@ -1,8 +1,10 @@
 package classes;
 
 import java.util.Locale;
+import java.util.Scanner;
 
 public class Estante {
+    public static Scanner in = new Scanner(System.in);
 
     private int capMaxima;
 
@@ -51,6 +53,7 @@ public class Estante {
         this.getItens()[posicao] = null;
         return i;
     }
+
 
     public int getCapMaxima() {
         return capMaxima;
