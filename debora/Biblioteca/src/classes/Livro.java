@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.Scanner;
+
 public class Livro extends Item{
 
     //atributos
@@ -20,6 +22,29 @@ public class Livro extends Item{
 
     public void setAutor(String autor) {
         this.autor = autor;
+    }
+
+    @Override
+    public void montarDetalhes(Scanner in){
+        System.out.println("Autor do livro: ");
+        this.setAutor(in.nextLine());
+        System.out.println("Quantidade de páginas do livro: ");
+        this.setQtdePaginas(in.nextInt());
+        in.nextLine();
+        System.out.println("Ano de publicação: ");
+        this.setAnoPublicacao(in.nextInt());
+        in.nextLine();
+        System.out.println("Edição número: ");
+        this.setEdicao(in.nextInt());
+        in.nextLine();
+    }
+    @Override
+    public void mostrarDetalhes() {
+        System.out.println("Autor do livro: "+this.getAutor());
+        System.out.println("Quantidade de páginas do livro: "+this.getQtdePaginas());
+        System.out.println("Ano de publicação: "+this.getAnoPublicacao());
+        System.out.println("Edição número: "+this.getEdicao());
+
     }
 
     public int getQtdePaginas() {

@@ -1,26 +1,60 @@
 package classes.lanches;
 
-import classes.lanches.Lanche;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public abstract class Sanduiches extends Lanche {
 
-    private String[] adicionais = new String[10];
+    private HashMap<String, Double> adicionais = new HashMap<>();
+
+    public void adicionarAdicional(String adicional, double valor) {
+        this.adicionais.put(adicional, valor);
+    }
+
+    public HashMap<String, Double> getAdicionais() {
+        return adicionais;
+    }
 
 
-    public void adicionarAdicional(String adicional) {
-        for (int i = 0; i < adicionais.length; i++) {
-            if (this.adicionais[i] == null) {
-                this.adicionais[i] = adicional;
-                break;
+    @Override
+    public void mostrarDetalhesComanda() {
+        System.out.println("====" + this.getTipo() + "====");
+        if (!this.adicionais.isEmpty()) {
+            System.out.println("-ADICIONAIS-");
+            for (String adicional : this.getAdicionais().keySet()) {
+                System.out.printf("%s: R$%.2f\n",adicional, this.getAdicionais().get(adicional));
             }
         }
     }
 
-    public String[] getAdicionais() {
-        return adicionais;
+    @Override
+    public void montarDetalhesLanche(Scanner in) {
+        System.out.println("Deseja adicionais? (S/N)");
+        String adiconais = in.nextLine();
+        if (adiconais.equalsIgnoreCase("S")) {
+            for (int i = 0; i < 10; i++) {
+                System.out.print("Informe o adicional: ");
+                String nomeAdicional = in.nextLine();
+                System.out.println("Informe o valor do adicional: R$");
+                double valorAdicional = in.nextDouble();
+                in.nextLine();
+                this.adicionarAdicional(nomeAdicional, valorAdicional);
+                System.out.println("Deseja adicionar mais adicionais? (S/N)");
+                String parada = in.nextLine();
+                if (parada.equalsIgnoreCase("N")) {
+                    break;
+                }
+            }
+        }
     }
 
-    public void setAdicionais(String[] adicionais) {
-        this.adicionais = adicionais;
+    @Override
+    public double getValor() {
+        double valorTotal = super.getValor();
+        for (Double v : this.adicionais.values()) {
+            valorTotal += v;
+        }
+        return valorTotal;
     }
 }

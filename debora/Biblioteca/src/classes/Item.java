@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Item {
@@ -10,43 +11,33 @@ public abstract class Item {
 
     private double valor;
 
-    private Avaliacao[] avaliacoes = new Avaliacao[30];
+    private ArrayList<Avaliacao> avaliacoes = new ArrayList<>();
 
 
+    // metodos
 
-     // metodos
-
-    public void avaliar(){
-        Avaliacao avaliacao = new Avaliacao();
+    public void avaliar() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Qual o seu nome? ");
-        avaliacao.setNome(in.nextLine());
+        Avaliacao a = new Avaliacao();
+        System.out.print("Informe o nome do avaliador: ");
+        a.setNome(in.nextLine());
         System.out.println("Informe uma nota de 0 a 10: ");
-        avaliacao.setRating(in.nextDouble());
+        a.setRating(in.nextDouble());
         in.nextLine();
-        System.out.println("Escreva o feedback (opcional): ");
-        avaliacao.setFeedback(in.nextLine());
-
-        for (int i = 0; i < getAvaliacoes().length; i++) {
-            if (getAvaliacoes()[i] == null) {
-                this.getAvaliacoes()[i] = avaliacao;
-                break;
-            }
-        }
+        System.out.print("Informe algum feedback (opcional): ");
+        a.setFeedback(in.nextLine());
+        this.avaliacoes.add(a);
     }
 
-    public double getTotalRating(){
-        int contador = 0;
-        double total = 0;
-        for (Avaliacao a : getAvaliacoes()){
-            if (a != null) {
-                total += a.getRating();
-                contador++;
-            }
-        }
-
-        return total/contador;
+    public double getTotalRating() {
+        double valor = this.avaliacoes.stream().mapToDouble(Avaliacao::getRating).sum()
+                /this.avaliacoes.size();
+        return Double.isNaN(valor) ? 0 : valor;
     }
+
+    public abstract void montarDetalhes(Scanner in);
+
+    public abstract void mostrarDetalhes();
 
 
     // getter e setter
@@ -75,11 +66,8 @@ public abstract class Item {
         this.valor = valor;
     }
 
-    public Avaliacao[] getAvaliacoes() {
+    public ArrayList<Avaliacao> getAvaliacoes() {
         return avaliacoes;
     }
 
-    public void setAvaliacoes(Avaliacao[] avaliacoes) {
-        this.avaliacoes = avaliacoes;
-    }
 }

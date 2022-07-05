@@ -1,9 +1,6 @@
 package classes.lanches;
 
-import classes.lanches.XBurguer;
-
 public class XSalada extends XBurguer {
-    public boolean aberto;
 
     public XSalada() {
         this.adicionarIngrediente("Alface");
@@ -14,4 +11,3 @@ public class XSalada extends XBurguer {
     }
 
 }
-
